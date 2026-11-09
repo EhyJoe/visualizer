@@ -1,0 +1,15 @@
+{
+  "name": "@impact-viz/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": { ".": "./src/index.ts" },
+  "dependencies": {
+    "@babel/parser": "^7.26.3",
+    "@babel/types": "^7.26.3",
+    "@babel/traverse": "^7.26.4",
+    "ignore": "^6.0.2",
+    "parse5": "^7.2.1",
+    "postcss": "^8.5.6"
+  }
+}

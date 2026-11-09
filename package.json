@@ -1,0 +1,39 @@
+{
+  "name": "web-project-change-impact-visualizer",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit -p packages/core/tsconfig.json && tsc --noEmit -p packages/server/tsconfig.json && tsc --noEmit -p packages/web/tsconfig.json",
+    "dev": "concurrently \"npm run server\" \"npm run dev:vite\"",
+    "dev:vite": "vite --config packages/web/vite.config.ts",
+    "build": "npm run build --workspace @impact-viz/web",
+    "impact-viz": "tsx packages/server/src/cli.ts",
+    "server": "tsx packages/server/src/index.ts",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev:vite\""
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.6",
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^10.0.7",
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.21",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@jridgewell/sourcemap-codec": "^1.6.0",
+    "cytoscape": "^3.34.4",
+    "express": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}
